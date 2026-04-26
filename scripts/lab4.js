@@ -6,6 +6,19 @@
  * @returns The sum of the two numbers if add is true and false otherwise.
  */
 function sumValues(num1, num2, add) {
+  if (
+    typeof num1 !== "number" ||
+    typeof num2 !== "number" ||
+    isNaN(num1) ||
+    isNaN(num2)
+  ) {
+    //make sure num1 and num2 are numbers
+    return false;
+  }
+  if (typeof add !== "boolean") {
+    //make sure add is a boolean
+    return false;
+  }
   if (add) {
     let result = 0; //Change const to let in order to modify result
 
@@ -13,7 +26,8 @@ function sumValues(num1, num2, add) {
 
     return result;
   } else {
-    return !add;
+    //return false if add is false
+    return false;
   }
 }
 
@@ -24,6 +38,18 @@ function sumValues(num1, num2, add) {
  * @returns An array of each price's new price, after the discount is applied. Or false, if prices array is empty.
  */
 function discountPrices(prices, discount) {
+  if (!Array.isArray(prices)) {
+    //make sure prices is an array
+    return false;
+  }
+  if (prices.length === 0) {
+    //make sure price array is not empty
+    return false;
+  }
+  if (typeof discount !== "number" || isNaN(discount)) {
+    //make sure discount is a number
+    return false;
+  }
   const discounted = [];
   const length = prices.length;
   let discountedPrice = 0;
